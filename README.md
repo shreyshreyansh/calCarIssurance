@@ -1,2 +1,2 @@
 # NagarroFresherJavaTraining-1
-These assignments were developed during the nagarro fresher training period.
+These assignments were developed during the nagarro fresher training period by `Shreyansh Shrey`.
