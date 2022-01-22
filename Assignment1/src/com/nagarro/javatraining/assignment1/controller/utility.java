@@ -1,41 +1,41 @@
 package com.nagarro.javatraining.assignment1.controller;
 
-import java.util.ArrayList;
+import com.nagarro.javatraining.assignment1.input.InputAcceptor;
+import com.nagarro.javatraining.assignment1.model.Car;
+import com.nagarro.javatraining.assignment1.view.Result;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import com.nagarro.javatraining.assignment1.input.InputAcceptor;
-import com.nagarro.javatraining.assignment1.model.Item;
-import com.nagarro.javatraining.assignment1.view.Result;
+import java.util.ArrayList;
 
 
 public class utility {
 
 	public static void main(String[] args) throws IOException {
-		ArrayList<Item> list = new ArrayList<Item>();
+		ArrayList<Car> list = new ArrayList<>();
 		BufferedReader obj = new BufferedReader(new InputStreamReader(System.in)) ;
 		char ch ;
-		Item i ;
-		Double effectivePriceOfAllItems= 0.0 ;
-		Double totalPrice ;
+		Car i ;
+		double effectivePriceOfAllInsurance= 0.0 ;
+		double totalPrice ;
 		do
 		{
 			i = InputAcceptor.enterInput() ;
 			i.calc_stl() ;
-			totalPrice = i.getQty()*i.getFppi() ;
-			i.setTotal_Price(totalPrice);
-			effectivePriceOfAllItems+=i.getTotal_Price() ;
+			totalPrice = i.getInsurancePrice();
+			i.setTotalInsurancePrice(totalPrice);
+			effectivePriceOfAllInsurance+=i.getTotalInsurancePrice() ;
 			list.add(i);
-			System.out.print("Do you want to enter another item details(Enter y/n) : ");
+			System.out.print("Do you want to enter details of any other car (y/n): ");
 			ch = obj.readLine().charAt(0) ;
 		}while((ch=='y')||(ch=='Y'));
 		
 		Result.displayResultFormat();
-		for (Item item : list) {
-			Result.displayResult(item);
+		for (Car car : list) {
+			Result.displayResult(car);
 		}
-		String str = String.format("\n%88.3f",effectivePriceOfAllItems );
+		String str = String.format("\n%93.2f",effectivePriceOfAllInsurance );
 		System.out.println(str);
 	}
 	

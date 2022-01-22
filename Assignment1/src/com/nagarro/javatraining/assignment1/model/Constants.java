@@ -1,11 +1,13 @@
 package com.nagarro.javatraining.assignment1.model;
 
 public class Constants {
-	public static final String RAW =  "raw" ;
-	public static final String MANUFACTURED =  "manufactured" ;
-	public static final String IMPORTED =  "imported" ;
-	public static final double TAX_RATE_RAW = 0.125 ;
-	public static final double TAX_RATE_MANUFACTURED = 0.125 ;
-	public static final double SURCHRGE_RATE_MANUFACTURED = 0.02 ;
-	public static final double IMPORT_DUTY_IMPORTED = 0.1 ;
+	public static final String BASIC =  "basic" ;
+	public static final String PREMIUM =  "premium" ;
+	public static final String HATCHBACK =  "hatchback" ;
+	public static final String SEDAN =  "sedan" ;
+	public static final String SUV =  "suv" ;
+	public static final double HATCHBACK_INTEREST_RATE = 0.05 ;
+	public static final double SEDAN_INTEREST_RATE = 0.08 ;
+	public static final double SUV_INTEREST_RATE = 0.1 ;
+	public static final double PREMIUM_ADDITIONAL_INTEREST_RATE = 0.2 ;
 }

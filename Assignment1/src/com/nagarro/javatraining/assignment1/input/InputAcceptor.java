@@ -1,63 +1,55 @@
 package com.nagarro.javatraining.assignment1.input;
 
+import com.nagarro.javatraining.assignment1.model.*;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import com.nagarro.javatraining.assignment1.model.*;
-
 public class InputAcceptor  {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in)) ;
-	public static Item enterInput() throws IOException
+	public static Car enterInput() throws IOException
 	{
 
-		String name ;
+		String model ;
 		String str ;
-		String type ;
-		Double price ;
-		int qty ;
-		boolean valid ;
+		String carType ;
+		String insuranceType;
+		Double price;
+		boolean valid;
 		
 
-		System.out.println("\nEnter the Item Details :");
-		System.out.print("Enter the Item name : ");
-		name = br.readLine();
+		System.out.println("\nEnter the Car Insurance Details :");
+		System.out.print("Enter the Car model : ");
+		model = br.readLine();
 
-		System.out.print("Enter the Item price : ");
+		System.out.print("Enter the Car price : ");
 		do{
 			str = br.readLine();
 			valid  = InputValidator.checkDouble(str);
 		} while(!valid) ;
 		price =  Double.parseDouble(str) ;
 
-		System.out.print("Enter the Item type : ");
+		System.out.print("Enter the Car type : ");
 		do{
 			str = br.readLine();
-			valid  = InputValidator.checkItemType(str);
+			valid  = InputValidator.checkCarType(str);
 		}while(!valid) ;
-		type = str.toLowerCase() ;
+		carType = str.toLowerCase() ;
 
-		System.out.print("Enter the Item Qty : ");
+		System.out.print("Enter the Car insurance type : ");
 		do{
 			str = br.readLine();
-			valid  = InputValidator.checkInt(str);
+			valid  = InputValidator.checkCarInsuranceType(str);
 		}while(!valid) ;
-		qty = Integer.parseInt(str);
+		insuranceType = str.toLowerCase() ;
 		
-		Item i ;
-		switch(type)
-		{
-			case Constants.RAW :
-				i = new Raw(name,type,price,qty);
-				break ;
-			case Constants.MANUFACTURED :
-				i = new Manufactured(name,type,price,qty);
-				break ;
-			default :
-				i = new Imported(name,type,price,qty);
-				break ;
-				
+		Car i ;
+		if (Constants.PREMIUM.equalsIgnoreCase(insuranceType)) {
+			i = new Premium(model, carType, price, insuranceType);
+		} else {
+			i = new Basic(model, carType, price, insuranceType);
 		}
 		return i ;
 

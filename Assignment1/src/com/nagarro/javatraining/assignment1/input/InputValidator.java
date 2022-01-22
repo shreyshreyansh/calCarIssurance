@@ -7,27 +7,24 @@ public class InputValidator {
 			Double.parseDouble(str) ;
 		}
 		catch (NumberFormatException e) {
-			System.err.print("Enter the Item price Again in double format : ");
+			System.err.print("Enter the Car price again in double format : ");
 			return false ;
 		}
 		return true ;
 	}
 
-	public static boolean checkItemType(String str) {
-		if (str.equalsIgnoreCase(Constants.RAW)|str.equalsIgnoreCase(Constants.MANUFACTURED)|str.equalsIgnoreCase(Constants.IMPORTED))
+	public static boolean checkCarType(String str) {
+		if (str.equalsIgnoreCase(Constants.HATCHBACK)|str.equalsIgnoreCase(Constants.SEDAN)|str.equalsIgnoreCase(Constants.SUV))
 			return true ;
-		System.err.print("You entered the item type in wrong format . kindly enter again .\nEnter one of the following (raw,manufactured,imported) :");
+		System.err.print("You entered the car type in wrong format . kindly enter again .\nEnter one of the following (hatchback, sedan, suv) :");
 		return false ;
 	}
 
-	public static boolean checkInt(String str) {
-		try {
-			 Integer.parseInt(str);
-		} catch (NumberFormatException e) {
-			System.err.print("Enter the Qty Again in Integer format : ");
-			return false ;
-		}
-		return true ;
+	public static boolean checkCarInsuranceType(String str) {
+		if (str.equalsIgnoreCase(Constants.BASIC)|str.equalsIgnoreCase(Constants.PREMIUM))
+			return true ;
+		System.err.print("You entered the car insurance type in wrong format . kindly enter again .\nEnter one of the following (basic, premium) :");
+		return false ;
 	}
 
 }
